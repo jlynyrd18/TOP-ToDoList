@@ -1,3 +1,5 @@
+import { addProjectForm } from "./addProjectForm";
+
 export function domDesign() {
     //getting ids
     const projectBody = document.getElementById('body');
@@ -9,8 +11,15 @@ export function domDesign() {
     projectTitle.textContent = 'Projects';
     projectDiv.appendChild(projectTitle);
 
+    const addBtn = document.createElement('button');
+    addBtn.textContent = 'Add Project';
+    projectDiv.appendChild(addBtn);
+
     //task area
     const taskTitle = document.createElement('h2');
     taskTitle.textContent = 'Tasks';
     taskDiv.appendChild(taskTitle);
+
+    //event listeners
+    addBtn.addEventListener('click', addProjectForm);
 }

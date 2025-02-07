@@ -20,6 +20,11 @@ export function domDesign() {
     taskTitle.textContent = 'Tasks';
     taskDiv.appendChild(taskTitle);
 
+    //task button
+    const taskBtn = document.createElement('button');
+    taskBtn.textContent = 'Add Task';
+    taskDiv.appendChild(taskBtn);
+
     //event listeners
     addBtn.addEventListener('click', addProjectForm);
 }

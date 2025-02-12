@@ -11,7 +11,7 @@ export function addProjectForm() {
 
     //form title
     const h2Title = document.createElement('h2');
-    h2Title.textContent = 'Add Project';
+    h2Title.textContent = 'Add Project or Task';
 
     //title field
     const titleLabel = document.createElement('label');
@@ -62,6 +62,7 @@ export function addProjectForm() {
     closeBtn.textContent = 'Close';
 
     //append elements to form 
+    projectForm.appendChild(h2Title);
     projectForm.appendChild(titleLabel);
     projectForm.appendChild(titleInput);
     projectForm.appendChild(descLabel);
@@ -83,11 +84,13 @@ export function addProjectForm() {
     });
 
     //event listener for submit
-    submitBtn.addEventListener('click', () => {
+    submitBtn.addEventListener('click', (e) => {
+        e.preventDefault();
         const title = titleInput.value;
         const desc = descInput.value;
         const dueDate = dateInput.value;
         const priority = prioritySelect.value;
         addProject(title, desc, dueDate, priority);
+        formContainer.remove();
     })
 }

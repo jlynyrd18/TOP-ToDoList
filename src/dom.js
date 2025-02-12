@@ -2,7 +2,6 @@ import { addProjectForm } from "./addProjectForm";
 
 export function domDesign() {
     //getting ids
-    const projectBody = document.getElementById('body');
     const projectDiv = document.getElementById('project-list');
     const taskDiv = document.getElementById('task-list');
 
@@ -27,4 +26,5 @@ export function domDesign() {
 
     //event listeners
     addBtn.addEventListener('click', addProjectForm);
+    taskBtn.addEventListener('click', addProjectForm);
 }

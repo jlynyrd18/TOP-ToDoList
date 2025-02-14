@@ -26,5 +26,5 @@ export function domDesign() {
 
     //event listeners
     addBtn.addEventListener('click', addProjectForm);
-    taskBtn.addEventListener('click', addProjectForm);
+    taskBtn.addEventListener('click', () => addProjectForm('task'));
 }

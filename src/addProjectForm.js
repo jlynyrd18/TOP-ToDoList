@@ -1,6 +1,6 @@
 import { addProject } from "./addProject";
 
-export function addProjectForm() {
+export function addProjectForm(arg) {
     //create container
     const formContainer = document.createElement('div');
     formContainer.id = 'form-container';
@@ -53,7 +53,12 @@ export function addProjectForm() {
     //submit button
     const submitBtn = document.createElement('button');
     submitBtn.type = 'submit';
-    submitBtn.textContent = 'Add Project';
+    if(arg === 'task') {
+        submitBtn.textContent = 'Add Task';
+    }else {
+        submitBtn.textContent = 'Add Project';
+    }
+    
 
     //close button
     const closeBtn = document.createElement('button');
@@ -71,6 +76,15 @@ export function addProjectForm() {
     projectForm.appendChild(dateInput);
     projectForm.appendChild(priorityLabel);
     projectForm.appendChild(prioritySelect);
+    //tags for task
+    if (arg === 'task') {
+        const tagLabel = document.createElement('label');
+        tagLabel.textContent = 'Task Tag:';
+        const tagInput = document.createElement('input');
+        tagInput.type = 'text';
+        projectForm.appendChild(tagLabel);
+        projectForm.appendChild(tagInput);
+    }
     projectForm.appendChild(submitBtn);
     projectForm.appendChild(closeBtn);
 
@@ -90,7 +104,13 @@ export function addProjectForm() {
         const desc = descInput.value;
         const dueDate = dateInput.value;
         const priority = prioritySelect.value;
-        addProject(title, desc, dueDate, priority);
+        
+        if (arg === 'task') {
+            addProject(title, desc, dueDate, priority, );
+        }else {
+            addProject(title, desc, dueDate, priority);
+        }
+        
         formContainer.remove();
     })
 }

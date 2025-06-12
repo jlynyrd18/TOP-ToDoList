@@ -18,19 +18,24 @@ export function addProject (title, desc, dueDate, priority, tag) {
             projectContainer.style.border = '1px solid black';
 
             const tagLine = document.createElement('p');
-            tagLine.textContent = `${this.tag}`;
+            tagLine.textContent = `#${this.tag}`;
 
             const projecth1 = document.createElement('h1');
             projecth1.textContent = `${this.title}`;
 
             const projectDesc = document.createElement('p');
-            projectDesc.textContent = `${this.desc}`;
+            projectDesc.textContent = `Description: ${this.desc}`;
 
             const projectDueDate = document.createElement('p');
-            projectDueDate.textContent = `${this.dueDate}`;
+            projectDueDate.textContent = `Date Due: ${this.dueDate}`;
 
             const projectPriority = document.createElement('p');
-            projectPriority.textContent = `${this.priority}`;
+            projectPriority.textContent = `Priority: ${this.priority}`;
+
+            const completedLabel = document.createElement('label');
+            completedLabel.textContent = 'Completed?';
+            const completedCheck = document.createElement('input');
+            completedCheck.type = 'checkbox';
 
             const projectEdit = document.createElement('button');
             projectEdit.textContent = 'Edit';
@@ -38,13 +43,15 @@ export function addProject (title, desc, dueDate, priority, tag) {
             const projectDelete = document.createElement('button');
             projectDelete.textContent = 'Delete';
 
-            if(tag !== ''){
+            if(tag){
                 taskDiv.appendChild(projectContainer);
                 projectContainer.appendChild(tagLine);
                 projectContainer.appendChild(projecth1);
                 projectContainer.appendChild(projectDesc);
                 projectContainer.appendChild(projectDueDate);
                 projectContainer.appendChild(projectPriority);
+                projectContainer.appendChild(completedLabel)
+                projectContainer.appendChild(completedCheck);
                 projectContainer.appendChild(projectEdit);
                 projectContainer.appendChild(projectDelete);
             }else {
@@ -53,13 +60,26 @@ export function addProject (title, desc, dueDate, priority, tag) {
                 projectContainer.appendChild(projectDesc);
                 projectContainer.appendChild(projectDueDate);
                 projectContainer.appendChild(projectPriority);
+                projectContainer.appendChild(completedLabel);
+                projectContainer.appendChild(completedCheck);
                 projectContainer.appendChild(projectEdit);
                 projectContainer.appendChild(projectDelete);
             }
 
-         
+            //need to have project delete go into local storage and delete task as well
+            //event listeners
+            projectDelete.addEventListener('click', () => {
+                const projectTitle = projecth1.textContent;
+                let projects = JSON.parse(localStorage.getItem('projectData')) || [];
+                projects = projects.filter(project => project.title !== projectTitle);
+                localStorage.setItem('projectData', JSON.stringify(projects));
+                projectContainer.remove();
 
+            })
+         //search for duplicates so not to save it
+            //local storage
             let projects = JSON.parse(localStorage.getItem('projectData')) || [];
+
 
             projects.push({
                 title: this.title,
@@ -71,6 +91,6 @@ export function addProject (title, desc, dueDate, priority, tag) {
             localStorage.setItem('projectData', JSON.stringify(projects));
         }
     }
-    const createProject = new Project(title, desc, dueDate, priority);
+    const createProject = new Project(title, desc, dueDate, priority, tag);
     createProject.projectCreate();
 }

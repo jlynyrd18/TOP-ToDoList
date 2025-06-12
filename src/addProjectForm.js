@@ -77,11 +77,13 @@ export function addProjectForm(arg) {
     projectForm.appendChild(priorityLabel);
     projectForm.appendChild(prioritySelect);
     //tags for task
+    let tagInput;
     if (arg === 'task') {
         const tagLabel = document.createElement('label');
         tagLabel.textContent = 'Task Tag:';
-        const tagInput = document.createElement('input');
+        tagInput = document.createElement('input');
         tagInput.type = 'text';
+        tagInput.required = true;
         projectForm.appendChild(tagLabel);
         projectForm.appendChild(tagInput);
     }
@@ -100,13 +102,14 @@ export function addProjectForm(arg) {
     //event listener for submit
     submitBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        const title = titleInput.value;
+        const title = titleInput.value.toUpperCase();
         const desc = descInput.value;
         const dueDate = dateInput.value;
         const priority = prioritySelect.value;
+        const tag = tagInput?.value;
         
         if (arg === 'task') {
-            addProject(title, desc, dueDate, priority, );
+            addProject(title, desc, dueDate, priority, tag);
         }else {
             addProject(title, desc, dueDate, priority);
         }

@@ -72,17 +72,6 @@ export function addProjectForm(arg) {
     projectForm.appendChild(dateInput);
     projectForm.appendChild(priorityLabel);
     projectForm.appendChild(prioritySelect);
-    //tags for task
-    let tagInput;
-    if (arg === 'task') {
-        const tagLabel = document.createElement('label');
-        tagLabel.textContent = 'Task Tag:';
-        tagInput = document.createElement('input');
-        tagInput.type = 'text';
-        tagInput.required = true;
-        projectForm.appendChild(tagLabel);
-        projectForm.appendChild(tagInput);
-    }
     projectForm.appendChild(submitBtn);
     projectForm.appendChild(closeBtn);
 

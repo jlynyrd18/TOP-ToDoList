@@ -11,7 +11,7 @@ export function addProjectForm(arg) {
 
     //form title
     const h2Title = document.createElement('h2');
-    h2Title.textContent = 'Add Project or Task';
+    h2Title.textContent = 'Add Project';
 
     //title field
     const titleLabel = document.createElement('label');
@@ -53,11 +53,7 @@ export function addProjectForm(arg) {
     //submit button
     const submitBtn = document.createElement('button');
     submitBtn.type = 'submit';
-    if(arg === 'task') {
-        submitBtn.textContent = 'Add Task';
-    }else {
-        submitBtn.textContent = 'Add Project';
-    }
+    submitBtn.textContent = 'Add Project';
     
 
     //close button

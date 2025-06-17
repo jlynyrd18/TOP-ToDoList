@@ -91,13 +91,8 @@ export function addProjectForm(arg) {
         const desc = descInput.value;
         const dueDate = dateInput.value;
         const priority = prioritySelect.value;
-        const tag = tagInput?.value;
         
-        if (arg === 'task') {
-            addProject(title, desc, dueDate, priority, tag);
-        }else {
-            addProject(title, desc, dueDate, priority);
-        }
+        addProject(title, desc, dueDate, priority);
         
         formContainer.remove();
     })

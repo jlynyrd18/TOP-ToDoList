@@ -76,5 +76,22 @@ export function addTask () {
 
     //appench form to container
     taskContainer.appendChild(taskForm);
+    document.body.appendChild(taskContainer);
 
+    //event listeners
+    taskClose.addEventListener('click', () => {
+        taskContainer.remove();
+    });
+
+    taskSubmit.addEventListener('click', (e) => {
+        e.preventDefault();
+        const title = taskTitleInput.value.toUpperCase();
+        const desc = taskDescInput.value;
+        const dueDate = taskDDInput.value;
+        const priority = taskPrioritySelect.value;
+
+        //addtask constructor?
+
+        taskContainer.remove();
+    })
 }

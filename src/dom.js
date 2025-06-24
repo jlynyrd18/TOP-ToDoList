@@ -1,6 +1,6 @@
 import { addProjectForm } from "./addProjectForm";
 import { addProject } from "./addProject";
-import { addTask } from "./taskForm";
+import { addTaskForm } from "./taskForm";
 
 export function domDesign() {
     //getting ids
@@ -38,5 +38,5 @@ export function domDesign() {
 
     //event listeners
     addBtn.addEventListener('click', addProjectForm);
-    taskBtn.addEventListener('click', addTask);
+    taskBtn.addEventListener('click', addTaskForm);
 }

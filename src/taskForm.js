@@ -1,6 +1,8 @@
 import { domDesign } from "./dom";
+import { addTask } from "./addTask";
 
-export function addTask () {
+
+export function addTaskForm () {
     //create container
     const taskContainer = document.createElement('div');
     taskContainer.id = 'task-container';
@@ -90,7 +92,7 @@ export function addTask () {
         const dueDate = taskDDInput.value;
         const priority = taskPrioritySelect.value;
 
-        //addtask constructor?
+        addTask(title, desc, dueDate, priority);
 
         taskContainer.remove();
     })

@@ -58,7 +58,6 @@ export function addProject (title, desc, dueDate, priority) {
                 projectContainer.remove();
 
             })
-         
         }
     }
     const createProject = new Project(title, desc, dueDate, priority);

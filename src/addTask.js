@@ -1,4 +1,4 @@
-//import { addTaskForm } from "./taskForm";
+import { saveTaskLocal } from "./localStorage";
 
 export function addTask(title, desc, dueDate, priority) {
     class Task {

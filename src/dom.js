@@ -27,7 +27,7 @@ export function domDesign() {
     taskDiv.appendChild(taskBtn);
 
     //load local storage or default options
-    loadLocal;
+    loadLocal();
 
     //event listeners
     addBtn.addEventListener('click', addProjectForm);

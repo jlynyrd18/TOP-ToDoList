@@ -10,6 +10,15 @@ export function loadLocal() {
     }else {
         addProject('Default', 'This is the default\'s description', '2025-12-31', 'High');
     }
+
+    let tasks = JSON.parse(localStorage.getItem('taskData')) || [];
+    if (tasks.length > 0) {
+        tasks.forEach(project => {
+            addTask(project.title, project.desc, project.dueDate, project.priority, project.tag);
+        })
+    }else {
+        addTask('Default', 'This is the default\'s description', '2025-12-31', 'High');
+    }
     
 }
 

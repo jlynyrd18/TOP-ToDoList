@@ -1,6 +1,6 @@
 import { addProjectForm } from "./addProjectForm";
-import { addProject } from "./addProject";
 import { addTaskForm } from "./taskForm";
+import { loadLocal } from "./localStorage";
 
 export function domDesign() {
     //getting ids
@@ -27,14 +27,7 @@ export function domDesign() {
     taskDiv.appendChild(taskBtn);
 
     //load local storage or default options
-    let projects = JSON.parse(localStorage.getItem('projectData')) || [];
-    if (projects.length > 0) {
-        projects.forEach(project => {
-            addProject(project.title, project.desc, project.dueDate, project.priority, project.tag);
-        })
-    }else {
-        addProject('Default', 'This is the default\'s description', '2025-12-31', 'High');
-    }
+    loadLocal;
 
     //event listeners
     addBtn.addEventListener('click', addProjectForm);

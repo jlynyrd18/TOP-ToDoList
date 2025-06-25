@@ -1,5 +1,4 @@
-import { addProjectForm } from "./addProjectForm";
-import { domDesign } from "./dom";
+
 
 export function addProject (title, desc, dueDate, priority) {
     class Project {

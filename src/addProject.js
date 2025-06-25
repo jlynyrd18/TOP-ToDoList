@@ -58,19 +58,7 @@ export function addProject (title, desc, dueDate, priority) {
                 projectContainer.remove();
 
             })
-         //search for duplicates so not to save it
-            //local storage
-            let projects = JSON.parse(localStorage.getItem('projectData')) || [];
-
-
-            projects.push({
-                title: this.title,
-                desc: this.desc, 
-                dueDate: this.dueDate,
-                priority: this.priority
-            });
-            
-            localStorage.setItem('projectData', JSON.stringify(projects));
+         
         }
     }
     const createProject = new Project(title, desc, dueDate, priority);

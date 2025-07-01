@@ -1,3 +1,4 @@
+import { saveProjectLocal } from "./localStorage";
 
 
 export function addProject (title, desc, dueDate, priority) {
@@ -55,8 +56,9 @@ export function addProject (title, desc, dueDate, priority) {
                 projects = projects.filter(project => project.title !== projectTitle);
                 localStorage.setItem('projectData', JSON.stringify(projects));
                 projectContainer.remove();
-
             })
+
+            saveProjectLocal(title, desc, dueDate, priority);
         }
     }
     const createProject = new Project(title, desc, dueDate, priority);

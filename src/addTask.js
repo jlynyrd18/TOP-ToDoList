@@ -42,6 +42,16 @@ export function addTask(title, desc, dueDate, priority) {
             taskContainer.appendChild(completedLabel);
             taskContainer.appendChild(completedCheck);
             taskContainer.appendChild(taskDelete);
+
+            taskDelete.addEventListener('click', () => {
+                const taskTitle = taskH2.textContent;
+                let tasks = JSON.parse(localStorage.getItem('taskData')) || [];
+                tasks = tasks.filter(task => task.title !== taskTitle);
+                localStorage.setItem('taskData', JSON.stringify(tasks));
+                taskContainer.remove();
+            })
+
+            //saveTaskLocal();
         }
     }
     const createTask = new Task(title, desc, dueDate, priority);

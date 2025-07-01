@@ -51,7 +51,7 @@ export function addTask(title, desc, dueDate, priority) {
                 taskContainer.remove();
             })
 
-            //saveTaskLocal();
+            saveTaskLocal(title, desc, dueDate, priority);
         }
     }
     const createTask = new Task(title, desc, dueDate, priority);

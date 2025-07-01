@@ -8,7 +8,7 @@ export function loadLocal() {
             addProject(project.title, project.desc, project.dueDate, project.priority, project.tag);
         })
     }else {
-        addProject('Default', 'This is the default\'s description', '2025-12-31', 'High');
+        addProject('Default Project', 'This is the default\'s description', '2025-12-31', 'High');
     }
 
     let tasks = JSON.parse(localStorage.getItem('taskData')) || [];
@@ -17,29 +17,33 @@ export function loadLocal() {
             addTask(project.title, project.desc, project.dueDate, project.priority, project.tag);
         })
     }else {
-        addTask('Default', 'This is the default\'s description', '2025-12-31', 'High');
+        addTask('Default Task', 'This is the default\'s description', '2025-12-31', 'High');
     }
     
 }
 
-export function saveProjectLocal() {
+export function saveProjectLocal(title, desc, dueDate, priority) {
     let projects = JSON.parse(localStorage.getItem('projectData')) || [];
     
     projects.push({
-        title: this.title,
-        desc: this.desc, 
-        dueDate: this.dueDate,
-        priority: this.priority,
-        //id: Date.now()
+        title, 
+        desc,
+        dueDate,
+        priority, 
+        
     });
             
     localStorage.setItem('projectData', JSON.stringify(projects));
 }
 
-export function saveTaskLocal() {
+export function saveTaskLocal(title, desc, dueDate, priority) {
     let tasks = JSON.parse(localStorage.getItem('taskData')) || [];
 
     tasks.push({
-
+        title,
+        desc, 
+        dueDate,
+        priority
+        
     })
 }

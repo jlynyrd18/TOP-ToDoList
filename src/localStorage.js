@@ -46,4 +46,6 @@ export function saveTaskLocal(title, desc, dueDate, priority) {
         priority
         
     })
+
+    localStorage.setItem('taskData', JSON.stringify(tasks));
 }

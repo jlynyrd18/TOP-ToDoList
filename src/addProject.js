@@ -32,9 +32,6 @@ export function addProject (title, desc, dueDate, priority) {
             const completedCheck = document.createElement('input');
             completedCheck.type = 'checkbox';
 
-            const projectEdit = document.createElement('button');
-            projectEdit.textContent = 'Edit';
-
             const projectDelete = document.createElement('button');
             projectDelete.textContent = 'Delete';
 
@@ -45,7 +42,6 @@ export function addProject (title, desc, dueDate, priority) {
             projectContainer.appendChild(projectPriority);
             projectContainer.appendChild(completedLabel);
             projectContainer.appendChild(completedCheck);
-            projectContainer.appendChild(projectEdit);
             projectContainer.appendChild(projectDelete);
 
             //need to have project delete go into local storage and delete task as well
